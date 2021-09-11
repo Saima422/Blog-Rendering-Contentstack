@@ -1,22 +1,32 @@
 import React, { useEffect, useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import BlogTiles from '../../components/BlogTitles/BlogTiles';
+import ErrModal from '../../components/ErrModal/ErrModal';
 import styles from './Homepage.module.scss';
 
 function Homepage(){
     const [blogArr, setBlogArr] = useState([]);
     const [redirect, setRedirect] = useState(false);
+    const [err, setErr] = useState(true);
     const [id, setId] = useState('');
 
     const url = "https://blog-hosted-backend-server.herokuapp.com/blogs";
 
     useEffect(()=>{
-        fetch(url)
+            fetch(url)
         .then((response)=> response.json())
         .then((data)=>{
             console.log(data.data);
+            // clearInterval(timer);
+            // console.log('here');
+            setErr(false);
             setBlogArr(data.data);
         })
+        .catch((err)=>{
+            console.log(err);
+            setErr(true);
+        })
+        
     },[])
 
     const clickHandler = (event) => {
@@ -30,9 +40,17 @@ function Homepage(){
         redirect ? 
         <Redirect to={`/${id}`} id={id}/>
         :
-        blogArr.map((item) => (
-            <BlogTiles key={item.blogId} id={item.blogId} item={item} onClick={clickHandler}/>
-        ))
+        <>
+        {
+            err ?
+            <ErrModal msg="Server Offline"/>
+            :
+            blogArr.map((item) => (
+                <BlogTiles key={item.blogId} id={item.blogId} item={item} onClick={clickHandler}/>
+            ))
+        }
+        </>
+        
     }
     </div>
 }

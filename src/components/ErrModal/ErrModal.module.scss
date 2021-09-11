@@ -1,0 +1,23 @@
+.modalContainer{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.411);
+    z-index: 10;
+    // border: 2px solid red;
+
+    .modal{
+        z-index: 10;
+        border: 2px solid white;
+        background-color: white;
+        color: black;
+        width: 500px;
+        min-height: 100px;
+        position: fixed;
+        top: 35vh;
+        left: 35vw;
+        font-size: 30px;
+    }
+}
