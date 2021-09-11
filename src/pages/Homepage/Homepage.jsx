@@ -13,12 +13,10 @@ function Homepage(){
     const url = "https://blog-hosted-backend-server.herokuapp.com/blogs";
 
     useEffect(()=>{
-            fetch(url)
+        fetch(url)
         .then((response)=> response.json())
         .then((data)=>{
             console.log(data.data);
-            // clearInterval(timer);
-            // console.log('here');
             setErr(false);
             setBlogArr(data.data);
         })

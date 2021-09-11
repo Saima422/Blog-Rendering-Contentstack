@@ -1,11 +1,13 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import ErrModal from '../../components/ErrModal/ErrModal';
 import styles from './Blogpage.module.scss';
 
 function Blogpage(){
     const { id } = useParams();
     const url = 'https://blog-hosted-backend-server.herokuapp.com/blogs';
+    const [err, setErr] = useState(true);
     const [blog, setBlog] = useState({});
 
     useEffect(() => {
@@ -13,12 +15,20 @@ function Blogpage(){
         .then((response) => response.json())
         .then((data) => {
             console.log(data.data);
+            setErr(false);
             setBlog(data.data);
         })
-        .catch((err) => console.log(err))
+        .catch((err) => {
+            console.log(err);
+            setErr(true);
+        })
     },[id]);
 
     return <>
+    {
+        err ?
+        <ErrModal msg="Server Offline"/>
+        :
         <div className={styles.blogContainer}>
             <div className={styles.blog}>
                 <div className={styles.blogContent}>
@@ -45,6 +55,7 @@ function Blogpage(){
                 </div>
             </div>
         </div>
+    }   
     </>
 }
 
