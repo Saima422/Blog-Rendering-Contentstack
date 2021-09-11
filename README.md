@@ -1,73 +1,117 @@
-Links
-https://wizardly-benz-3fa500.netlify.app/
 
-# Getting Started with Create React App
+# Blog Rendering App
+Blog Rendering App makes API calls to server for Fetching all blogs and for Fetching a Single blog with specific ID.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Introduction
 
-## Available Scripts
+A simple frontend for Blog Rendering Application created with React JS and integrated with a backend which is hosted on heroku. Built with an aim to learn and implement creation of a React Frontend with a given backend. Authentication Application supports functionalities of fetching all the blog data from server and displaying it on the UI in the form of tiles and fetching a single blog data with specific blog ID and displays the data on a different Route. The application makes API calls to the backend for the same. 
 
-In the project directory, you can run:
+## Getting Started
 
-### `npm start`
+These are instructions to set up your project locally.
+To get a local copy up and running follow these simple steps.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Prerequisites
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+To clone and run this application, you'll need [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and [Node.js](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-18-04) (which comes with npm) installed on your computer.
 
-### `npm test`
+### Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+From your command line:
 
-### `npm run build`
+1. Clone the repo
+   ```sh
+   $ git clone https://github.com/Saima422/Blog-Rendering-React.git
+   ```
+2. Install the Dependencies
+   ```sh
+   $ npm install
+   ```
+3. To start the App, use the following command
+    ```sh
+    $ npm run start
+    ```
+4. The React Application is now Up and Running
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Folder Structure
+```
+.
+├── package.json
+├── package-lock.json
+├── public
+│   ├── b-logo.ico
+│   ├── favicon.ico
+│   ├── index.html
+│   ├── logo192.png
+│   ├── logo512.png
+│   ├── manifest.json
+│   └── robots.txt
+├── README.md
+└── src
+    ├── App.css
+    ├── App.js
+    ├── App.test.js
+    ├── components
+    │   ├── BlogContainer
+    │   │   ├── BlogContainer.jsx
+    │   │   └── BlogContainer.module.scss
+    │   ├── BlogTitles
+    │   │   ├── BlogTiles.jsx
+    │   │   └── BlogTiles.module.scss
+    │   ├── ErrModal
+    │   │   ├── ErrModal.jsx
+    │   │   └── ErrModal.module.scss
+    │   ├── Footer
+    │   │   ├── Footer.jsx
+    │   │   └── Footer.module.scss
+    │   └── Navbar
+    │       ├── blog-logo.png
+    │       ├── Logo.png
+    │       ├── Navbar.jsx
+    │       └── Navbar.module.scss
+    ├── index.css
+    ├── index.js
+    ├── logo.svg
+    ├── pages
+    │   ├── Blogpage
+    │   │   ├── Blogpage.jsx
+    │   │   └── Blogpage.module.scss
+    │   └── Homepage
+    │       ├── Homepage.jsx
+    │       └── Homepage.module.scss
+    ├── reportWebVitals.js
+    ├── routing
+    │   └── AppRouter.js
+    └── setupTests.js
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+## Application View
 
-### `npm run eject`
+* `/` Route
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+    ![](https://saima422.github.io/Image-JSON-Data-Repo/blog-react/home-route.png)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* `/:blogId` Route
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+    ![](https://saima422.github.io/Image-JSON-Data-Repo/blog-react/id-route.png)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+## Scope and Functionality
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### Features:
+* Displays Error Modal when server offline
+* Fetches All blogs from server upon load of Application
+* Fetches a single Blog content from server when a "View Full Blog" button of the Blog is Clicked
+* Navigation between Different Related Blogs through Links provided on the Blog
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Referred Resources
+* [React](https://reactjs.org/docs/getting-started.html)
+* [React Routing](https://reactrouter.com/web/guides/quick-start)
 
-### Code Splitting
+## Contact
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* Author - Saima Sayed 
+* [Connect on LinkedIn](https://www.linkedin.com/in/saima-sayed-6482481b9/)
+* [Project Resources](https://github.com/Saima422/Blog-Rendering-React)
+* [Netlify Live Link](https://wizardly-benz-3fa500.netlify.app/)
