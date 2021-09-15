@@ -1,6 +1,6 @@
 .container{
     background-color: #BD4B4B;
-    border: 3px solid black;
+    // border: 3px solid white;
     width: 400px;
     margin: 20px;
     padding: 10px 0;
@@ -19,6 +19,12 @@
         border: 2px solid white;
         padding: 10px;
         margin: 10px auto;
+
+        @media (max-width: 380px) {
+            padding: 2px;
+            height: 150px;
+            width: 250px;
+        }
 
         img{
             width: 100%;
