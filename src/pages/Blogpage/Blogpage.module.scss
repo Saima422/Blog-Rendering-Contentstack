@@ -4,18 +4,26 @@
     justify-content: center;
     align-items: flex-start;
     color: white;
-    // border: 2px solid white;
 
     .blog{
         width: 95vw;
         display: flex;
         justify-content: space-around;
 
+        @media (max-width: 750px) {
+            flex-direction: column;
+        }
+
         .blogContent{
             width: 70%;
             border: 10px solid #BD4B4B;
             background-color: #BD4B4B;
             margin: 10px;
+
+            @media (max-width: 750px) {
+                width: 90%;
+                margin: 10px auto;
+            }
 
             .blogImage{
                 border: 2px solid white;
@@ -54,8 +62,12 @@
             height: 300px;
             border: 10px solid #BD4B4B;
             background-color: #BD4B4B;
-            // color: white;
             margin: 10px;
+
+            @media (max-width: 750px) {
+                width: 90%;
+                margin: 10px auto;
+            }
 
             .linkBox{
                 margin: 10px;
@@ -63,7 +75,6 @@
                 .link{
                     color: white;
                     text-decoration: none;
-                    // padding: 10px;
                 }
             }
             

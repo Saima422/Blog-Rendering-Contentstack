@@ -12,7 +12,6 @@ function Navbar(){
             <ul className={styles.navContainer}>
                 <li className={styles.navItem}><Link to="#" className={styles.navLink}>About</Link></li>
                 <li className={styles.navItem}><Link to="#" className={styles.navLink}>Contact</Link></li>
-                {/* <li className={styles.navItem}><Link to="/home" className={styles.navLink}>Login</Link></li> */}
             </ul>
             <div className={styles.hidden}><i className="fa fa-bars fa-2x humburger"></i></div>
         </div>

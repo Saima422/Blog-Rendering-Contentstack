@@ -16,7 +16,6 @@ function Homepage(){
         fetch(url)
         .then((response)=> response.json())
         .then((data)=>{
-            console.log(data.data);
             setErr(false);
             setBlogArr(data.data);
         })
@@ -28,7 +27,6 @@ function Homepage(){
     },[])
 
     const clickHandler = (event) => {
-        console.log('Hey ', event.target.parentElement.id);
         setId(event.target.parentElement.id);
         setRedirect(true);
     }

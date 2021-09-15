@@ -31,6 +31,10 @@ footer{
     display: flex;
     width: 30vw;
     justify-content: space-evenly;
+
+    @media (max-width: 520px) {
+        width: 35vw;
+    }
 }
 
 .icon{

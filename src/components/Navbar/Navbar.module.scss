@@ -16,7 +16,12 @@ header{
 }
 
 .hidden{
-    display: none;    
+    display: none;  
+
+    @media (max-width: 520px) {
+        display: unset;
+        color: white;
+    }  
 }
 
 .navLogo{
@@ -30,6 +35,10 @@ header{
     align-items: center;
     justify-content: space-evenly;
     width: 25vw;
+
+    @media (max-width: 520px) {
+        display: none;
+    }
 }
 
 .navItem{
