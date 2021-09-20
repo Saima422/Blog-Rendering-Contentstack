@@ -2,6 +2,10 @@
   "name": "blog-rendering",
   "version": "0.1.0",
   "private": true,
+  "engines": { 
+    "node": "^14.17.4",
+    "npm": "^7.20.3"
+  },
   "dependencies": {
     "@fortawesome/free-brands-svg-icons": "^5.15.4",
     "@fortawesome/react-fontawesome": "^0.1.15",
