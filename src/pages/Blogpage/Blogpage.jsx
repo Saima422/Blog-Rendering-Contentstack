@@ -6,16 +6,24 @@ import styles from './Blogpage.module.scss';
 
 function Blogpage(){
     const { id } = useParams();
-    const url = 'https://blog-hosted-backend-server.herokuapp.com/blogs';
     const [err, setErr] = useState(true);
     const [blog, setBlog] = useState({});
-
+    const [url, setUrl] = useState(false);
+    
     useEffect(() => {
-        fetch(`${url}/${id}`)
+        const SERVER_URL = process.env.REACT_APP_SERVER_URL;
+        const SERVER_ENV_AUTH = process.env.REACT_APP_SERVER_ENV_AUTH;
+
+        
+        fetch(`${SERVER_URL}/${id}?${SERVER_ENV_AUTH}`)
         .then((response) => response.json())
         .then((data) => {
             setErr(false);
-            setBlog(data.data);
+            setBlog(data.entry);
+            if(data.entry.blogimage.url){
+                setUrl(true);
+            }
+            // console.log(data.entry);
         })
         .catch((err) => {
             console.log(err);
@@ -31,20 +39,23 @@ function Blogpage(){
         <div className={styles.blogContainer}>
             <div className={styles.blog}>
                 <div className={styles.blogContent}>
-                    <h1>{blog.blogTitle}</h1>
+                    <h1>{blog.title}</h1>
                     <div className={styles.blogImage}>
-                        <img src={blog.blogImage} alt='blog'></img>
+                        {url ?
+                        <img src={blog.blogimage.url} alt='blog'></img>
+                        :
+                        <img src={blog.blogimage} alt='blog'></img>}
                     </div> 
-                    <h4>Posted On: {blog.createdAt}</h4>
+                    <h4>Posted On: {blog.createdat}</h4>
                     <h4>Author: {blog.author}</h4>
-                    <div className={styles.content}>{blog.blogContent}</div> 
+                    <div className={styles.content}>{blog.blogcontent}</div> 
                 </div>
                 <div className={styles.blogAside}>
                     <h2>Related Links</h2>
-                    {blog.relatedLinks?
-                        blog.relatedLinks.map((item)=>(
-                            <div key={item.refId} className={styles.linkBox}>
-                            <Link to={`/${item.refId}`} className={styles.link}>{item.title}</Link>
+                    {blog.relatedlinks?
+                        blog.relatedlinks.map((item)=>(
+                            <div key={item.linkinfo.reflink[0].uid} className={styles.linkBox}>
+                            <Link to={`/${item.linkinfo.reflink[0].uid}`} className={styles.link}>{item.linkinfo.linktitle}</Link>
                             <br></br>
                             </div>
                         ))

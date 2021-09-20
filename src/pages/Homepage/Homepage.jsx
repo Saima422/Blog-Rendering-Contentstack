@@ -10,14 +10,16 @@ function Homepage(){
     const [err, setErr] = useState(true);
     const [id, setId] = useState('');
 
-    const url = "https://blog-hosted-backend-server.herokuapp.com/blogs";
-
     useEffect(()=>{
-        fetch(url)
+        const SERVER_URL = process.env.REACT_APP_SERVER_URL;
+        const SERVER_ENV_AUTH = process.env.REACT_APP_SERVER_ENV_AUTH;
+
+        fetch(`${SERVER_URL}?${SERVER_ENV_AUTH}`)
         .then((response)=> response.json())
         .then((data)=>{
+            // console.log(data);
             setErr(false);
-            setBlogArr(data.data);
+            setBlogArr(data.entries);
         })
         .catch((err)=>{
             console.log(err);
@@ -42,7 +44,7 @@ function Homepage(){
             <ErrModal msg="Server Offline"/>
             :
             blogArr.map((item) => (
-                <BlogTiles key={item.blogId} id={item.blogId} item={item} onClick={clickHandler}/>
+                <BlogTiles key={item.uid} id={item.uid} item={item} onClick={clickHandler}/>
             ))
         }
         </>
